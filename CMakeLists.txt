@@ -24,3 +24,8 @@ target_link_libraries(ngfd_droid-vibrator ${LIBHARDWARE_LIBS})
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${NGFD_PLUGIN_LDFLAGS}")
 
 install(TARGETS ngfd_droid-vibrator LIBRARY DESTINATION lib/ngf)
+
+message("Vibrator libs: ${DROID_VIBRATOR_LIBS}")
+message("Vibrator ldflags: ${DROID_VIBRATOR_LDFLAGS}")
+message("Hardware libs: ${LIBHARDWARE_LIBS}")
+message("Hardware ldflags: ${LIBHARDWARE_LDFLAGS}")
