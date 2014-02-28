@@ -21,8 +21,4 @@ target_link_libraries(ngfd_droid-vibrator ${NGFD_PLUGIN_LIBRARIES})
 target_link_libraries(ngfd_droid-vibrator ${DROID_VIBRATOR_LIBRARIES})
 target_link_libraries(ngfd_droid-vibrator ${LIBHARDWARE_LIBRARIES})
 
-string(REPLACE ";" " " PLUGIN_LDFLAGS "${NGFD_PLUGIN_LDFLAGS_OTHERS}")
-
-set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${PLUGIN_LDFLAGS}")
-
 install(TARGETS ngfd_droid-vibrator LIBRARY DESTINATION lib/ngf)
