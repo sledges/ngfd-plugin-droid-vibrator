@@ -17,12 +17,12 @@ include_directories(${LIBHARDWARE_INCLUDE_DIRS})
 
 add_library(ngfd_droid-vibrator SHARED src/droid-vibrator.c)
 
-target_link_libraries(ngfd_droid-vibrator ${NGFD_PLUGIN_LIBS})
-target_link_libraries(ngfd_droid-vibrator ${DROID_VIBRATOR_LIBS})
-target_link_libraries(ngfd_droid-vibrator ${LIBHARDWARE_LIBS})
+target_link_libraries(ngfd_droid-vibrator ${NGFD_PLUGIN_LIBRARIES})
+target_link_libraries(ngfd_droid-vibrator ${DROID_VIBRATOR_LIBRARIES})
+target_link_libraries(ngfd_droid-vibrator ${LIBHARDWARE_LIBRARIES})
 
-set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${NGFD_PLUGIN_LDFLAGS}")
-set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${DROID_VIBRATOR_LDFLAGS}")
-set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${LIBHARDWARE_LDFLAGS}")
+string(REPLACE ";" " " PLUGIN_LDFLAGS "${NGFD_PLUGIN_LDFLAGS_OTHERS}")
+
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${PLUGIN_LDFLAGS}")
 
 install(TARGETS ngfd_droid-vibrator LIBRARY DESTINATION lib/ngf)
